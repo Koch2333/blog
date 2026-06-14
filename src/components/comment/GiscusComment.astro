@@ -1,0 +1,29 @@
+---
+import { commentConfig, siteConfig } from "../../config";
+
+const giscus = commentConfig.giscus;
+const enabled = giscus && giscus.repo && giscus.repoId;
+---
+
+{enabled && (
+  <div id="giscus-container" class="mt-4">
+    <script
+      is:inline
+      src="https://giscus.app/client.js"
+      data-repo={giscus!.repo}
+      data-repo-id={giscus!.repoId}
+      data-category={giscus!.category}
+      data-category-id={giscus!.categoryId}
+      data-mapping={giscus!.mapping || 'pathname'}
+      data-strict={giscus!.strict ? '1' : '0'}
+      data-reactions-enabled={giscus!.reactionsEnabled ? '1' : '0'}
+      data-emit-metadata={giscus!.emitMetadata ? '1' : '0'}
+      data-input-position={giscus!.inputPosition || 'top'}
+      data-theme="preferred_color_scheme"
+      data-lang={giscus!.lang || siteConfig.lang.replace('_', '-')}
+      data-loading={giscus!.loading || 'lazy'}
+      crossorigin="anonymous"
+      async
+    ></script>
+  </div>
+)}

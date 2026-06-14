@@ -1,4 +1,5 @@
 import type {
+	CommentConfig,
 	ExpressiveCodeConfig,
 	LicenseConfig,
 	NavBarConfig,
@@ -87,4 +88,20 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// Note: Some styles (such as background color) are being overridden, see the astro.config.mjs file.
 	// Please select a dark theme, as this blog theme currently only supports dark background color
 	theme: "github-dark",
+};
+
+export const commentConfig: CommentConfig = {
+	giscus: {
+		repo: 'Koch2333/blog',
+		repoId: '',           // User needs to fill this from https://giscus.app
+		category: 'Announcements',
+		categoryId: '',       // User needs to fill this from https://giscus.app
+		mapping: 'pathname',
+		strict: true,
+		reactionsEnabled: true,
+		emitMetadata: false,
+		inputPosition: 'top',
+		lang: 'zh-CN',
+		loading: 'lazy',
+	},
 };
